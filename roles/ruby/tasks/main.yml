@@ -1,10 +1,5 @@
 ---
 
-- name: "Install rust for YJIT support"
-  shell: "mise use --global --pin rust"
-  register: mise_result_rust
-  changed_when: "mise_result_rust.stderr is search('✓ installed')"
-
 - name: "Install latest ruby"
   shell: "mise use --global --pin ruby"
   register: mise_result_ruby

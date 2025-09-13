@@ -21,7 +21,6 @@ sudo pacman -S --needed --noconfirm \
   diff-so-fancy \
   direnv \
   firefox \
-  git \
   kitty \
   kubectx \
   mkcert \
@@ -32,7 +31,9 @@ sudo pacman -S --needed --noconfirm \
   k9s \
   ttf-fira-code \
   cliphist \
-  wtype
+  wtype \
+  yubikey-manager \
+  gnome-keyring
 
 echo ""
 log "*** Setting firefox as default browser ***"
@@ -49,6 +50,10 @@ rm -rf ~/.config/fcitx5 ~/config/fcitx ~/.config/environment.d/fcitx.conf
 sed -i '/^exec-once = uwsm app -- fcitx5$/d' ~/.local/share/omarchy/default/hypr/autostart.conf
 success "done!"
 
+echo ""
+log "*** Running Ansible Playbook ***"
+ansible-playbook playbook.yml
+
 if [ -n "$dotfiles_repo" ]; then
   echo ""
   log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
@@ -56,7 +61,3 @@ if [ -n "$dotfiles_repo" ]; then
   chezmoi init "$dotfiles_repo" --apply ${dotfiles_branch:+--branch "$dotfiles_branch"}
   success "done!"
 fi
-
-echo ""
-log "*** Running Ansible Playbook ***"
-ansible-playbook playbook.yml
