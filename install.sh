@@ -39,6 +39,15 @@ log "*** Setting firefox as default browser ***"
 xdg-settings set default-web-browser firefox.desktop
 success "done!"
 
+echo ""
+log "*** Remove fcitx5 input handler ***"
+echo "Removing packages..."
+sudo pacman -Rns --noconfirm fcitx5 fcitx5-gtk fcitx5-qt 2>/dev/null || success "done!"
+echo "Removing config files..."
+sudo rm -rf /etc/xdg/autostart/org.fcitx.Fcitx5.desktop
+rm -rf ~/.config/fcitx5 ~/config/fcitx ~/.config/environment.d/fcitx.conf
+success "done!"
+
 if [ -n "$dotfiles_repo" ]; then
 	echo ""
 	log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
