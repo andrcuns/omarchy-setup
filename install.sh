@@ -9,7 +9,8 @@ function success() {
 }
 
 if [ -n "$1" ]; then
-  dotfiles_repo="$1"
+	dotfiles_repo="$1"
+	dotfiles_branch="$2"
 fi
 
 log "*** Installing essential software ***"
@@ -54,7 +55,7 @@ if [ -n "$dotfiles_repo" ]; then
 	echo ""
 	log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
 	echo ""
-	chezmoi init "$dotfiles_repo"
+	chezmoi init "$dotfiles_repo" --apply ${dotfiles_branch:+--branch "$dotfiles_branch"}
 	success "done!"
 fi
 
