@@ -36,6 +36,12 @@
     backup: true
   when: not skip_config_tasks
 
+- name: Create kitty configuration directory
+  file:
+    path: "{{ user.home }}/.config/kitty"
+    state: directory
+  when: not skip_config_tasks
+
 - name: Create kitty.conf
   copy:
     src: kitty.conf

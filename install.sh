@@ -9,32 +9,30 @@ function success() {
 }
 
 if [ -n "$1" ]; then
-	dotfiles_repo="$1"
-	dotfiles_branch="$2"
+  dotfiles_repo="$1"
+  dotfiles_branch="$2"
 fi
 
 log "*** Installing essential software ***"
 echo ""
 sudo pacman -S --needed --noconfirm \
-	ansible \
-	chezmoi \
-	diff-so-fancy \
-	direnv \
-	eza \
-	firefox \
-	github-cli \
-	git \
-	kitty \
-	kubectx \
-	mkcert \
-	ncdu \
-	pass \
-	visual-studio-code-bin \
-	zsh \
-	k9s \
-	ttf-fira-code \
-	cliphist \
-	wtype
+  ansible \
+  chezmoi \
+  diff-so-fancy \
+  direnv \
+  firefox \
+  git \
+  kitty \
+  kubectx \
+  mkcert \
+  ncdu \
+  pass \
+  visual-studio-code-bin \
+  zsh \
+  k9s \
+  ttf-fira-code \
+  cliphist \
+  wtype
 
 echo ""
 log "*** Setting firefox as default browser ***"
@@ -52,11 +50,11 @@ sed -i '/^exec-once = uwsm app -- fcitx5$/d' ~/.local/share/omarchy/default/hypr
 success "done!"
 
 if [ -n "$dotfiles_repo" ]; then
-	echo ""
-	log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
-	echo ""
-	chezmoi init "$dotfiles_repo" --apply ${dotfiles_branch:+--branch "$dotfiles_branch"}
-	success "done!"
+  echo ""
+  log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
+  echo ""
+  chezmoi init "$dotfiles_repo" --apply ${dotfiles_branch:+--branch "$dotfiles_branch"}
+  success "done!"
 fi
 
 echo ""
