@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
+function log() {
+  echo -e "\033[1;35m$1\033[0m"
+}
+
+function success() {
+  echo -e "\033[1;32m$1\033[0m"
+}
+
 if [ -n "$1" ]; then
   dotfiles_repo="$1"
 fi
 
-echo "*** Installing essential software ***"
+log "*** Installing essential software ***"
 echo ""
 sudo pacman -S --needed --noconfirm \
 	ansible \
@@ -26,13 +34,19 @@ sudo pacman -S --needed --noconfirm \
 	k9s \
   ttf-fira-code
 
+echo ""
+log "*** Setting firefox as default browser ***"
+xdg-settings set default-web-browser firefox.desktop
+success "done!"
+
 if [ -n "$dotfiles_repo" ]; then
 	echo ""
-	echo "*** Initializing chezmoi with repo: $dotfiles_repo ***"
+	log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
 	echo ""
 	chezmoi init "$dotfiles_repo"
+	success "done!"
 fi
 
 echo ""
-echo "*** Running Ansible Playbook ***"
+log "*** Running Ansible Playbook ***"
 ansible-playbook playbook.yml
