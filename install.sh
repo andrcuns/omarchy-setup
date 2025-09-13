@@ -46,6 +46,7 @@ sudo pacman -Rns --noconfirm fcitx5 fcitx5-gtk fcitx5-qt 2>/dev/null || success 
 echo "Removing config files..."
 sudo rm -rf /etc/xdg/autostart/org.fcitx.Fcitx5.desktop
 rm -rf ~/.config/fcitx5 ~/config/fcitx ~/.config/environment.d/fcitx.conf
+sed -i '/^exec-once = uwsm app -- fcitx5$/d' ~/.local/share/omarchy/default/hypr/autostart.conf
 success "done!"
 
 if [ -n "$dotfiles_repo" ]; then
