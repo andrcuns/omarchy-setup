@@ -30,9 +30,10 @@ sudo pacman -S --needed --noconfirm \
 	pass \
 	visual-studio-code-bin \
 	zsh \
-	zoxide \
 	k9s \
-  ttf-fira-code
+	ttf-fira-code \
+	cliphist \
+	wtype
 
 echo ""
 log "*** Setting firefox as default browser ***"
