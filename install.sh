@@ -33,7 +33,8 @@ sudo pacman -S --needed --noconfirm \
   cliphist \
   wtype \
   yubikey-manager \
-  gnome-keyring
+  gnome-keyring \
+  gcr-4
 
 echo ""
 log "*** Setting firefox as default browser ***"
