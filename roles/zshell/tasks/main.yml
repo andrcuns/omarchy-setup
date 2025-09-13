@@ -1,0 +1,44 @@
+---
+- name: Clone oh-my-zsh
+  git:
+    repo: "{{ github }}robbyrussell/oh-my-zsh.git"
+    dest: "{{ omzsh_dir }}"
+    accept_hostkey: yes
+
+- name: Check if omzsh is installed
+  stat:
+    path: "{{ omzsh_dir }}"
+  register: omzsh
+
+- name: Install oh-my-zsh
+  shell: "{{ omzsh_dir }}/tools/install.sh"
+  when: not omzsh.stat.exists
+
+- name: Cloning custom plugins
+  git:
+    repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
+    dest: "{{ omzsh_plugins_dir }}/{{ item.key }}"
+    accept_hostkey: yes
+  with_dict:
+    "{{ omzsh_plugins }}"
+
+- name: Create .zshrc
+  template:
+    src: .zshrc.j2
+    dest: "{{ user.home }}/.zshrc"
+    backup: true
+  when: not skip_config_tasks
+
+- name: Create starship.toml
+  copy:
+    src: starship.toml
+    dest: "{{ user.home }}/.config/starship.toml"
+    backup: true
+  when: not skip_config_tasks
+
+- name: Create kitty.conf
+  copy:
+    src: kitty.conf
+    dest: "{{ user.home }}/.config/kitty/kitty.conf"
+    backup: true
+  when: not skip_config_tasks

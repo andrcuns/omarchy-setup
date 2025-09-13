@@ -1,0 +1,12 @@
+---
+skip_config_tasks: "{{ lookup('env', 'ANSIBLE_SKIP_CONFIG_REGENERATE') | default(false) | bool }}"
+
+omzsh_dir: "{{ user.home }}/.oh-my-zsh"
+omzsh_plugins_dir: "{{ omzsh_dir }}/custom/plugins"
+
+omzsh_plugins: {
+  zsh-syntax-highlighting: zsh-users,
+  zsh-autosuggestions: zsh-users,
+  zsh-completions: zsh-users,
+  zsh-history-substring-search: zsh-users
+}
