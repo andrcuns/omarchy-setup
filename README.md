@@ -1,10 +1,10 @@
-# MACOS SETUP
+# OMARCHY SETUP
 
-macos-setup is a small project using Brewfile and ansible to bootstrap fresh macos install
+omarchy-setup is a small project using ansible to update some of the defaults for a default [Omarchy](https://omarchy.org/) installation.
 
 ## Usage
 
-[install.sh](install.sh) is base script that installs all of the software and it's configuration: [Homebrew](https://brew.sh/) and [Ansible](https://www.ansible.com/)
+[install.sh](install.sh) is base script that installs all of the software and it's configurations.
 
 ### dotfiles
 
