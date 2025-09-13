@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -n "$1" ]; then
-  export DOTFILES_REPO="$1"
+  dotfiles_repo="$1"
 fi
 
 echo "*** Installing essential software ***"
@@ -25,6 +25,13 @@ sudo pacman -S --needed --noconfirm \
 	zoxide \
 	k9s \
   ttf-fira-code
+
+if [ -n "$dotfiles_repo" ]; then
+	echo ""
+	echo "*** Initializing chezmoi with repo: $dotfiles_repo ***"
+	echo ""
+	chezmoi init "$dotfiles_repo"
+fi
 
 echo ""
 echo "*** Running Ansible Playbook ***"

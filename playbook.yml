@@ -3,14 +3,8 @@
 - hosts: localhost
   roles:
     # Shell
-    - { role: zshell, tags: zshell }
+    - { role: shell, tags: shell }
     
     # Programming languages
     - { role: ruby, tags: ruby }
     - { role: node, tags: node }
-    
-    # Dotfiles
-    - { role: dotfiles, tags: dotfiles }
-
-    # Misc
-    - { role: gpg, tags: gpg }
