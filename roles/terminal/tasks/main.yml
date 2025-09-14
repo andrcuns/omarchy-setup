@@ -15,13 +15,11 @@
     src: terminal.sh
     dest: "{{ user.home }}/.config/hypr/terminal.sh"
     mode: '0755'
-    backup: true
 
 - name: Create hyprland terminal configuration
   copy:
     src: terminal.conf
     dest: "{{ user.home }}/.config/hypr/terminal.conf"
-    backup: true
 
 - name: Add terminal.conf source to hyprland.conf
   lineinfile:

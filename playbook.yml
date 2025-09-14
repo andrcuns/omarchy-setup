@@ -2,10 +2,14 @@
 
 - hosts: localhost
   roles:
-    # Shell
-    - { role: shell, tags: shell }
+    # Software
+    - { role: base, tags: base }
     - { role: terminal, tags: terminal }
     - { role: clipboard, tags: clipboard }
+    - { role: keyring, tags: keyring }
+
+    # Shell
+    - { role: shell, tags: shell }
     
     # Programming languages
     - { role: ruby, tags: ruby }

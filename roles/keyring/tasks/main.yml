@@ -1,0 +1,20 @@
+---
+- name: Install keyring packages
+  community.general.pacman:
+    name:
+      - gnome-keyring
+      - gcr-4
+    state: latest
+  become: true
+
+- name: Create hyprland keyring configuration
+  copy:
+    src: keyring.conf
+    dest: "{{ user.home }}/.config/hypr/keyring.conf"
+
+- name: Add keyring.conf source to hyprland.conf
+  lineinfile:
+    path: "{{ user.home }}/.config/hypr/hyprland.conf"
+    line: "source = ~/.config/hypr/keyring.conf"
+    create: no
+    backup: true
