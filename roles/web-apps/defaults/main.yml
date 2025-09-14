@@ -9,6 +9,7 @@ apps:
   - name: GitLab
     url: "https://gitlab.com"
     icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gitlab.png"
+    binding: "SUPER, G"
   - name: Claude
     url: "https://claude.ai"
     icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png"
