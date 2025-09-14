@@ -8,7 +8,7 @@
 - name: Add extra-bindings.conf source to hyprland.conf
   lineinfile:
     path: "{{ user.home }}/.config/hypr/hyprland.conf"
-    line: "# Additional custom configs\nsource = ~/.config/hypr/extra-bindings.conf"
+    line: "source = ~/.config/hypr/extra-bindings.conf"
     create: no
     backup: true
 
