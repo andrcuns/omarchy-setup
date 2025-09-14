@@ -1,4 +1,12 @@
 ---
+- name: Install clipboard management packages
+  community.general.pacman:
+    name:
+      - cliphist
+      - wtype
+    state: present
+  become: true
+
 - name: Create hyprland clipboard configuration
   copy:
     src: clipboard.conf

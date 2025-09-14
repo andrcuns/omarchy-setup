@@ -30,8 +30,6 @@ sudo pacman -Sy --needed --noconfirm \
   zsh \
   k9s \
   ttf-fira-code \
-  cliphist \
-  wtype \
   yubikey-manager \
   gnome-keyring \
   gcr-4
