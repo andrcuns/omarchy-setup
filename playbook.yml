@@ -7,6 +7,7 @@
     - { role: terminal, tags: terminal }
     - { role: clipboard, tags: clipboard }
     - { role: keyring, tags: keyring }
+    - { role: web-apps, tags: web-apps }
 
     # Shell
     - { role: shell, tags: shell }

@@ -1,0 +1,15 @@
+---
+apps:
+  - name: ProtonMail
+    url: "https://mail.proton.me"
+    icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/proton-mail.png"
+  - name: Gmail
+    url: "https://mail.google.com"
+    icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gmail.png"
+  - name: GitLab
+    url: "https://gitlab.com"
+    icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gitlab.png"
+  - name: Claude
+    url: "https://claude.ai"
+    icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png"
+    binding: "SHIFT SUPER, A"

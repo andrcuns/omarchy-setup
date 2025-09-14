@@ -28,17 +28,5 @@
     state: absent
   become: true
 
-- name: Create hyprland clipboard configuration
-  copy:
-    src: unbindings.conf
-    dest: "{{ user.home }}/.config/hypr/unbindings.conf"
-
-- name: Add unbindings.conf source to hyprland.conf
-  lineinfile:
-    path: "{{ user.home }}/.config/hypr/hyprland.conf"
-    line: "# Additional custom configs\nsource = ~/.config/hypr/unbindings.conf"
-    create: no
-    backup: true
-
 - name: Set firefox as default browser
   shell: xdg-settings set default-web-browser firefox.desktop

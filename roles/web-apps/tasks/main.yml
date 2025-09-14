@@ -1,0 +1,23 @@
+---
+
+- name: Create extra bindings configuration
+  copy:
+    src: extra-bindings.conf
+    dest: "{{ user.home }}/.config/hypr/extra-bindings.conf"
+
+- name: Add extra-bindings.conf source to hyprland.conf
+  lineinfile:
+    path: "{{ user.home }}/.config/hypr/hyprland.conf"
+    line: "# Additional custom configs\nsource = ~/.config/hypr/extra-bindings.conf"
+    create: no
+    backup: true
+
+- name: Create web apps
+  shell: omarchy-webapp-install "{{ item.name }}" "{{ item.url }}" "{{ item.icon }}"
+  with_items: "{{ apps }}"
+
+- name: Add keybinding
+  lineinfile:
+    path: "{{ user.home }}/.config/hypr/extra-bindings.conf"
+    line: "bindd = {{ item.binding }}, {{ item.name }}, exec, omarchy-launch-webapp \"{{ item.url }}\""
+  with_items: "{{ apps | selectattr('binding', 'defined') | list }}"
