@@ -4,6 +4,7 @@
   roles:
     # Shell
     - { role: shell, tags: shell }
+    - { role: terminal, tags: terminal }
     
     # Programming languages
     - { role: ruby, tags: ruby }
