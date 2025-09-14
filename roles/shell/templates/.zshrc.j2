@@ -10,6 +10,7 @@ export GPG_TTY=$(tty)
 
 # Preferred editor
 export EDITOR='nvim'
+export SUDO_EDITOR="$EDITOR"
 
 # Set custom PATH
 export PATH=$PATH:$HOME/bin
@@ -23,6 +24,9 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 
 # Setup project path
 export SETUP_PROJECT_PATH={{ playbook_dir }}
+
+# Mist
+export BAT_THEME=ansi
 
 # =====================================================================================================================
 # Oh my zsh settings
@@ -104,6 +108,7 @@ alias zshrc='vim $HOME/.zshrc'
 alias gcamst='git commit --amend --no-edit'
 alias ll='eza --long --icons --group-directories-first'
 alias la='eza --long --all --icons --group-directories-first --icons'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
 # dotfiles
 alias ch='chezmoi'
