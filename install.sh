@@ -15,7 +15,7 @@ fi
 
 log "*** Installing essential software ***"
 echo ""
-sudo pacman -S --needed --noconfirm \
+sudo pacman -Sy --needed --noconfirm \
   ansible \
   chezmoi \
   diff-so-fancy \
