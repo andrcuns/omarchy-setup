@@ -1,0 +1,13 @@
+---
+- name: Create hyprland clipboard configuration
+  copy:
+    src: clipboard.conf
+    dest: "{{ user.home }}/.config/hypr/clipboard.conf"
+    backup: true
+
+- name: Add clipboard.conf source to hyprland.conf
+  lineinfile:
+    path: "{{ user.home }}/.config/hypr/hyprland.conf"
+    line: "source = ~/.config/hypr/clipboard.conf"
+    create: no
+    backup: true

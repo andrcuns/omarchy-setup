@@ -5,6 +5,7 @@
     # Shell
     - { role: shell, tags: shell }
     - { role: terminal, tags: terminal }
+    - { role: clipboard, tags: clipboard }
     
     # Programming languages
     - { role: ruby, tags: ruby }
