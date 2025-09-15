@@ -23,11 +23,6 @@ echo ""
 log "*** Running Ansible Playbook ***"
 ansible-playbook playbook.yml --ask-become-pass
 
-echo ""
-log "*** Install extra aur packages ***"
-yay -S --noconfirm google-cloud-cli
-success "done!"
-
 if [ -n "$dotfiles_repo" ]; then
   echo ""
   log "*** Initializing chezmoi with repo: $dotfiles_repo ***"
