@@ -26,7 +26,7 @@ if [ -z "$WIN" ]; then
   TIMEOUT=2
   START=$(date +%s)
 
-  uwsm app -- kitty --class "$CLASS" >/dev/null 2>&1 &
+  uwsm app -- kitty --class "$CLASS" --single-instance >/dev/null 2>&1 &
   while true; do
     WIN=$(address)
     if [ -n "$WIN" ]; then break; else sleep 0.02; fi
