@@ -15,7 +15,7 @@ function allign-vertical() {
   local info=$(hyprctl monitors -j | jq -r '.[] | select(.focused==true) | [.width, .height]')
   local width=$(echo "$info" | jq -r '.[0]')
   local height=$(echo "$info" | jq -r '.[1]')
-  local offset=$(($height * 5 / 100))
+  local offset=$(($height * 2 / 100))
 
   hyprctl dispatch movewindowpixel exact $win_x $offset,address:$win
 }
