@@ -16,6 +16,8 @@
       - ttf-fira-code
       - yubikey-manager
       - ttf-firacode-nerd
+      - exfat-utils
+      - gnome-disk-utility
     state: latest
     update_cache: true
   become: true
