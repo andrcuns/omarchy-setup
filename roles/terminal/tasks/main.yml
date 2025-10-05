@@ -10,16 +10,23 @@
     dest: "{{ user.home }}/.config/kitty/kitty.conf"
     backup: true
 
+- name: Check if hyprland config directory exists
+  stat:
+    path: "{{ user.home }}/.config/hypr"
+  register: hypr_dir
+
 - name: Copy terminal script
   copy:
     src: terminal.sh
     dest: "{{ user.home }}/.config/hypr/terminal.sh"
     mode: '0755'
+  when: hypr_dir.stat.exists
 
 - name: Create hyprland terminal configuration
   copy:
     src: terminal.conf
     dest: "{{ user.home }}/.config/hypr/terminal.conf"
+  when: hypr_dir.stat.exists
 
 - name: Add terminal.conf source to hyprland.conf
   lineinfile:
@@ -27,3 +34,4 @@
     line: "source = ~/.config/hypr/terminal.conf"
     create: no
     backup: true
+  when: hypr_dir.stat.exists
