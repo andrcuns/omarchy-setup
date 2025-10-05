@@ -21,7 +21,7 @@ success "done!"
 
 echo ""
 log "*** Running Ansible Playbook ***"
-ansible-playbook playbook.yml --ask-become-pass
+ansible-playbook playbook.yml --ask-become-pass --skip-tags neovim
 
 if [ -n "$dotfiles_repo" ]; then
   echo ""

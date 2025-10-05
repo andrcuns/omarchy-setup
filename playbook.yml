@@ -15,3 +15,6 @@
     # Programming languages
     - { role: ruby, tags: ruby }
     - { role: node, tags: node }
+
+    # Editors
+    - { role: neovim, tags: neovim }

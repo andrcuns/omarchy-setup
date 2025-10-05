@@ -1,0 +1,21 @@
+---
+
+- name: Clone lazyvim starter template
+  git:
+    repo: "{{ github }}LazyVim/starter.git"
+    dest: "{{ nvim_config }}"
+    accept_hostkey: yes
+    force: yes
+
+- name: Add tomorrow theme plugin
+  copy:
+    src: theme.lua
+    dest: "{{ nvim_config }}/lua/plugins/theme.lua"
+
+- name: Add colorcolumn option
+  lineinfile:
+    path: "{{ nvim_config }}/init.lua"
+    line: vim.opt.colorcolumn = "120"
+    state: present
+
+# It is recommended to run :LazyHealth after installation. This will load all plugins and check if everything is working correctly.
