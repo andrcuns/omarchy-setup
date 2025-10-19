@@ -5,6 +5,7 @@
     # Software
     - { role: base, tags: base }
     - { role: terminal, tags: terminal }
+    - { role: keyring, tags: keyring }
     - { role: web-apps, tags: web-apps }
 
     # Shell
