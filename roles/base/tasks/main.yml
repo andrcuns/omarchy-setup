@@ -10,13 +10,13 @@
       - mkcert
       - ncdu
       - pass
-      - visual-studio-code-bin
       - zsh
       - k9s
       - yubikey-manager
       - ttf-firacode-nerd
       - exfat-utils
       - gnome-disk-utility
+      - kitty
     state: latest
     update_cache: true
   become: true
