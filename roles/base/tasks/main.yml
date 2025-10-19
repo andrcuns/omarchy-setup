@@ -13,7 +13,6 @@
       - visual-studio-code-bin
       - zsh
       - k9s
-      - ttf-fira-code
       - yubikey-manager
       - ttf-firacode-nerd
       - exfat-utils
