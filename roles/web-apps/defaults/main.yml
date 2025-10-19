@@ -13,4 +13,4 @@ apps:
   - name: Claude
     url: "https://claude.ai"
     icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png"
-    binding: "SHIFT SUPER, A"
+    binding: "SHIFT SUPER ALT, A"
