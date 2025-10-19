@@ -5,8 +5,6 @@
     # Software
     - { role: base, tags: base }
     - { role: terminal, tags: terminal }
-    - { role: clipboard, tags: clipboard }
-    - { role: keyring, tags: keyring }
     - { role: web-apps, tags: web-apps }
 
     # Shell
