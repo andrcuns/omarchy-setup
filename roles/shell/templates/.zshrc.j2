@@ -13,7 +13,7 @@ export EDITOR='nvim'
 export SUDO_EDITOR="$EDITOR"
 
 # Set custom PATH
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH
 
 # Ruby
 export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
@@ -48,7 +48,7 @@ plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-fzf-hi
 plugins+=(docker kubectl)
 
 # DEV
-plugins+=(git npm yarn gem mise)
+plugins+=(git npm bun gem mise)
 
 # Cloud
 plugins+=(gcloud aws)
@@ -101,13 +101,13 @@ alias cat='bat'
 alias help='tldr'
 alias q='exit'
 alias m='mise'
+alias copy='wl-copy'
+alias ocode='opencode'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
 alias zshrc='vim $HOME/.zshrc'
-alias gcamst='git commit --amend --no-edit'
 alias ll='eza --long --icons --group-directories-first'
 alias la='eza --long --all --icons --group-directories-first --icons'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-alias copy='wl-copy'
 
 # dotfiles
 alias ch='chezmoi'
