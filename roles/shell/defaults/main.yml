@@ -5,9 +5,10 @@ omzsh_dir: "{{ user.home }}/.oh-my-zsh"
 omzsh_plugins_dir: "{{ omzsh_dir }}/custom/plugins"
 
 omzsh_plugins: {
-  zsh-syntax-highlighting: zsh-users,
-  zsh-autosuggestions: zsh-users,
-  zsh-completions: zsh-users,
-  zsh-history-substring-search: zsh-users,
-  zsh-fzf-history-search: joshskidmore
+  zsh-syntax-highlighting: zsh-users/zsh-syntax-highlighting,
+  zsh-autosuggestions: zsh-users/zsh-autosuggestions,
+  zsh-completions: zsh-users/zsh-completions,
+  zsh-history-substring-search: zsh-users/zsh-history-substring-search,
+  zsh-fzf-history-search: joshskidmore/zsh-fzf-history-search,
+  pnpm: ntnyq/omz-plugin-pnpm
 }

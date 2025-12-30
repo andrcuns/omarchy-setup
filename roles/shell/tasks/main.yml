@@ -16,7 +16,7 @@
 
 - name: Cloning custom plugins
   git:
-    repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
+    repo: "{{ github }}{{ item.value }}.git"
     dest: "{{ omzsh_plugins_dir }}/{{ item.key }}"
     accept_hostkey: yes
   with_dict:
