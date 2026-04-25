@@ -1,6 +1,0 @@
----
-
-- name: "Install latest ruby"
-  shell: "mise use --global --pin ruby"
-  register: mise_result_ruby
-  changed_when: "mise_result_ruby.stderr is search('✓ installed')"

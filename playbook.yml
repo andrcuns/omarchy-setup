@@ -4,6 +4,7 @@
   roles:
     # Software
     - { role: base, tags: base }
+    - { role: mise, tags: mise }
     - { role: terminal, tags: terminal }
     - { role: keyring, tags: keyring }
     - { role: web-apps, tags: web-apps }
@@ -11,9 +12,8 @@
     # Shell
     - { role: shell, tags: shell }
     
-    # Programming languages
-    - { role: ruby, tags: ruby }
-    - { role: node, tags: node }
+    # Programming languages and tools
+    - { role: mise, tags: mise }
 
     # Editors
     - { role: neovim, tags: neovim }

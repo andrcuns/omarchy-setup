@@ -4,3 +4,4 @@ user:
   home: "{{ lookup('env', 'HOME') }}"
 
 github: "https://github.com/"
+mise_config_dir: "{{ user.home }}/.config/mise"

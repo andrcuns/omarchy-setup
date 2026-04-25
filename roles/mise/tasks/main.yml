@@ -1,0 +1,16 @@
+---
+- name: Add global mise config
+  template:
+    src: config.toml.j2
+    dest: "{{ mise_config_dir }}/config.toml"
+    backup: true
+
+- name: Add default npm packages file
+  copy:
+    src: default-npm-packages
+    dest: "{{ mise_config_dir }}/.default-npm-packages"
+
+- name: Install global mise tools
+  shell: "mise install"
+  register: mise_result
+  changed_when: "mise_result.stderr is search('✓ installed')"
