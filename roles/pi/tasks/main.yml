@@ -29,6 +29,6 @@
 - name: Link pi command
   file:
     src: "{{ user.home }}/.pi-docker/pi"
-    dest: "{{ user.home }}/bin/pi"
+    dest: "{{ user.home }}/bin/dpi"
     state: link
     force: true
