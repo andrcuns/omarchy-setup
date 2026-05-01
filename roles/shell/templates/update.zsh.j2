@@ -1,8 +1,4 @@
 function update() {
-  log() {
-    echo -e "\033[1;33m$1\033[0m"
-  }
-
   run-ansible-playbook() {
     (cd $SETUP_PROJECT_PATH && ANSIBLE_SKIP_CONFIG_REGENERATE=true ansible-playbook playbook.yml --tags $1)
   }
