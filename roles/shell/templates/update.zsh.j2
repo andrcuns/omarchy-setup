@@ -53,6 +53,11 @@ function update() {
   # Clean up helper functions when update() returns
   trap 'unfunction log run-ansible-playbook sync-dotfile-changes update-npm-packages 2>/dev/null' EXIT
 
+  local original_dir=$(pwd)
+  log "*** Move to home directory ***"
+  cd $HOME
+
+  echo ""
   log "***Update arch software***"
   sudo pacman -Syu
 
@@ -76,11 +81,13 @@ function update() {
   log "***Update omzsh and plugins***"
   run-ansible-playbook "shell"
 
-  echo
   log "***Update pi-docker***"
   run-ansible-playbook "pi"
 
-  echo
-  log "***Updating latest dotfile changes from target***"
+  log "***Syncing dotfiles***"
   sync-dotfile-changes
+
+  echo ""
+  success "Update complete!"
+  cd "$original_dir"
 }
