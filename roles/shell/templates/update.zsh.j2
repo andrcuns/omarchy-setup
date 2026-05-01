@@ -10,6 +10,9 @@ function update() {
   sync-dotfile-changes() {
     local cz_path="$(chezmoi source-path)"
 
+    # optional hooks to run before change sync
+    run-dotfiles-update-hooks || true
+
     chezmoi re-add
     local git_status=$(git -C $cz_path status -s)
 
@@ -76,6 +79,10 @@ function update() {
   echo
   log "***Update omzsh and plugins***"
   run-ansible-playbook "shell"
+
+  echo
+  log "***Update pi-docker***"
+  run-ansible-playbook "pi"
 
   echo
   log "***Updating latest dotfile changes from target***"

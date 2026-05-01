@@ -5,11 +5,6 @@
     dest: "{{ mise_config_dir }}/config.toml"
     backup: true
 
-- name: Add default npm packages file
-  copy:
-    src: default-npm-packages
-    dest: "{{ mise_config_dir }}/.default-npm-packages"
-
 - name: Install global mise tools
   shell: "mise install"
   register: mise_result

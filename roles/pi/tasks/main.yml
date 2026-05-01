@@ -1,0 +1,34 @@
+---
+- name: Clone pi-docker repository
+  git:
+    repo: git@github.com:andrcuns/pi-docker.git
+    dest: "{{ user.home }}/.pi-docker"
+    accept_hostkey: yes
+
+- name: Trust pi-docker mise config
+  shell: "mise trust --cd {{ user.home }}/.pi-docker"
+  register: mise_result
+  changed_when: "mise_result.stderr is not search('No untrusted config files found.')"
+
+- name: Create pi agent directory
+  file:
+    path: "{{ user.home }}/.pi/agent"
+    state: directory
+
+- name: Create pi agent settings
+  copy:
+    src: settings.json
+    dest: "{{ user.home }}/.pi/agent/settings.json"
+    force: false
+
+- name: Ensure ~/bin exists
+  file:
+    path: "{{ user.home }}/bin"
+    state: directory
+
+- name: Link pi command
+  file:
+    src: "{{ user.home }}/.pi-docker/pi"
+    dest: "{{ user.home }}/bin/pi"
+    state: link
+    force: true

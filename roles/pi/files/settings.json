@@ -1,0 +1,6 @@
+{
+  "packages": [
+    "npm:pi-lens",
+    "npm:pi-powerline-footer"
+  ]
+}
