@@ -17,7 +17,6 @@
       - exfat-utils
       - gnome-disk-utility
       - kitty
-      - opencode
       - visual-studio-code-bin
     state: latest
     update_cache: true
