@@ -98,14 +98,14 @@ alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
 
 # llm
-alias q='pi -p --model $SMALL_MODEL'
+alias q='ai-jail --no-status-bar pi -p --model $SMALL_MODEL'
+alias oc='ai-jail --status-bar=dark opencode'
 
 # misc
 alias cat='bat'
 alias help='tldr'
 alias m='mise'
 alias copy='wl-copy'
-alias oc='opencode'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
 alias zshrc='vim $HOME/.zshrc'
 alias ll='eza --long --icons --group-directories-first'
