@@ -9,9 +9,6 @@
     - { role: keyring, tags: keyring }
     - { role: web-apps, tags: web-apps }
 
-    # LLM
-    - { role: pi, tags: pi }
-
     # Shell
     - { role: shell, tags: shell }
     
