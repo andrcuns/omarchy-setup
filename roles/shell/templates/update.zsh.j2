@@ -81,9 +81,6 @@ function update() {
   log "***Update omzsh and plugins***"
   run-ansible-playbook "shell"
 
-  log "***Update pi-docker***"
-  run-ansible-playbook "pi"
-
   log "***Syncing dotfiles***"
   sync-dotfile-changes
 
