@@ -13,7 +13,7 @@ export EDITOR='nvim'
 export SUDO_EDITOR="$EDITOR"
 
 # Set custom PATH
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Ruby
 export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
@@ -98,9 +98,9 @@ alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
 
 # llm
-alias q='ai-jail --no-status-bar pi -p --model $SMALL_MODEL'
-alias oc='ai-jail --status-bar=dark opencode'
-alias jpi='ai-jail --status-bar=dark pi'
+alias q='ai-jail --no-status-bar pi --model $SMALL_MODEL:minimal -p'
+alias oc='ai-jail opencode'
+alias jpi='ai-jail pi'
 
 # misc
 alias cat='bat'
