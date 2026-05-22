@@ -12,9 +12,6 @@ export GPG_TTY=$(tty)
 export EDITOR='nvim'
 export SUDO_EDITOR="$EDITOR"
 
-# Set custom PATH
-export PATH=$HOME/bin:$PATH
-
 # Ruby
 export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
 export BUNDLE_AUTO_INSTALL=true
@@ -98,9 +95,8 @@ alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
 
 # llm
-alias q='ai-jail --exec --no-browser pi --model $SMALL_MODEL:minimal -p'
-alias oc='ai-jail opencode'
-alias jpi='ai-jail pi'
+alias q='ai-jail --exec --no-browser $(mise bin-paths pi)/pi --model $SMALL_MODEL:minimal -p'
+alias oc='opencode'
 
 # misc
 alias cat='bat'
@@ -123,8 +119,9 @@ alias chcd='chezmoi cd'
 # =====================================================================================================================
 # Custom integrations
 # =====================================================================================================================
-# Activate mise
+# Activate mise and setup PATH for installed tools
 eval "$(mise activate zsh)"
+export PATH=$HOME/bin:$PATH
 
 # Zoxide integration
 eval "$(zoxide init --cmd cd zsh)"

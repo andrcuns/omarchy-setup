@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Shims overriding the default binary to run pi through ai-jail
+
+ai-jail $(mise bin-paths pi)/pi "$@"

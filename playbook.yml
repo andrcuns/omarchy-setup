@@ -14,6 +14,7 @@
     
     # Programming languages and tools
     - { role: mise, tags: mise }
+    - { role: llm, tags: llm }
 
     # Editors
     - { role: neovim, tags: neovim }
