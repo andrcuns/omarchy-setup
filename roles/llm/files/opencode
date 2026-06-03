@@ -8,4 +8,5 @@ ai-jail \
   --mask=.envrc \
   --status-bar=dark \
   --no-save-config \
+  --ssh \
   $(mise bin-paths opencode)/opencode "$@"
