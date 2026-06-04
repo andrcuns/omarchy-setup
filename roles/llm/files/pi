@@ -10,4 +10,7 @@ ai-jail \
   --status-bar=dark \
   --no-save-config \
   --ssh \
+  --gpu \
+  --docker \
+  --display \
   $(mise bin-paths pi)/pi "$@"
