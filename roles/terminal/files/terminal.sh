@@ -3,25 +3,26 @@
 set -eu
 
 CLASS="Terminal"
-TERM_WIDTH_PERCENT=99
+OUTER_GAP=3
+BORDER_SIZE=2
 TERM_HEIGHT_PERCENT=70
 TOP_GAP=4
 
 calculate_terminal_geometry() {
 	local mon_x mon_y mon_width mon_height mon_scale reserved_top
-	local gap eff_width eff_height
+	local eff_width eff_height width_offset
 
 	read -r mon_x mon_y mon_width mon_height mon_scale reserved_top <<< \
 		"$(echo "$MONITORS" | jq -r '.[] | select(.focused==true) | [.x, .y, .width, .height, .scale, .reserved[1]] | @tsv')"
 
-	gap=$((reserved_top + TOP_GAP))
 	eff_width=$(echo "$mon_width $mon_scale" | awk '{printf "%.0f", $1/$2}')
 	eff_height=$(echo "$mon_height $mon_scale" | awk '{printf "%.0f", $1/$2}')
+	width_offset=$((OUTER_GAP + BORDER_SIZE))
 
-	TERM_WIDTH=$((eff_width * TERM_WIDTH_PERCENT / 100))
+	TERM_WIDTH=$((eff_width - (width_offset * 2)))
 	TERM_HEIGHT=$((eff_height * TERM_HEIGHT_PERCENT / 100))
-	TERM_X=$((mon_x + (eff_width - TERM_WIDTH) / 2))
-	TERM_Y=$((mon_y + gap))
+	TERM_X=$((mon_x + width_offset))
+	TERM_Y=$((mon_y + reserved_top + TOP_GAP))
 }
 
 CLIENTS=$(hyprctl clients -j)
