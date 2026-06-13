@@ -66,8 +66,9 @@ function update() {
   yay -Syu
 
   echo
-  log-info "***Update global mise tools***"
+  log-info "***Update global mise tools and run cleanup***"
   mise up --bump --cd {{ mise_config_dir }}
+  mise prune --cd {{ mise_config_dir }} --yes
 
   echo
   log-info "***Update rubygems***"
