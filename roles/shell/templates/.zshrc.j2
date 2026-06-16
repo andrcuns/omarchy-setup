@@ -24,7 +24,6 @@ export SETUP_PROJECT_PATH={{ playbook_dir }}
 
 # Misc
 export BAT_THEME=ansi
-export SMALL_MODEL='claude-haiku-4.5'
 
 # =====================================================================================================================
 # Oh my zsh settings
@@ -121,7 +120,7 @@ alias chcd='chezmoi cd'
 # =====================================================================================================================
 # Activate mise and setup PATH for installed tools
 eval "$(mise activate zsh)"
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Zoxide integration
 eval "$(zoxide init --cmd cd zsh)"

@@ -17,10 +17,13 @@
       - exfat-utils
       - gnome-disk-utility
       - kitty
-      - visual-studio-code-bin
     state: latest
     update_cache: true
   become: true
+
+- name: Install zed editor
+  shell: |
+    curl -f https://zed.dev/install.sh | sh
 
 - name: Remove unneeded packages
   community.general.pacman:
