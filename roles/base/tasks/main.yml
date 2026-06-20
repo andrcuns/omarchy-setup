@@ -25,6 +25,10 @@
   shell: |
     curl -f https://zed.dev/install.sh | sh
 
+- name: Install bitwarden
+  shell: |
+    omarchy-pkg-add bitwarden bitwarden-cli
+
 - name: Remove unneeded packages
   community.general.pacman:
     name:

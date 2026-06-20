@@ -15,3 +15,16 @@
     src: pi
     dest: "{{ user.home }}/bin/pi"
     mode: "0755"
+
+- name: Remove preinstalled harness shims
+  file:
+    path: "{{ user.home }}/.local/bin/{{ item }}"
+    state: absent
+  loop:
+    - codex
+    - copilot
+    - gemini
+    - ghui
+    - opencode
+    - pi
+    - playwright-cli
