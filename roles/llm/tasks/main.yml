@@ -1,17 +1,17 @@
 - name: Ensure user bin directory exists
   file:
-    path: "{{ user.home }}/.local/bin"
+    path: "{{ user.home }}/bin"
     state: directory
-    mode: '0755'
+    mode: "0755"
 
 - name: Create opencode shim
   copy:
     src: opencode
-    dest: "{{ user.home }}/.local/bin/opencode"
-    mode: '0755'
+    dest: "{{ user.home }}/bin/opencode"
+    mode: "0755"
 
 - name: Create pi shim
   copy:
     src: pi
-    dest: "{{ user.home }}/.local/bin/pi"
-    mode: '0755'
+    dest: "{{ user.home }}/bin/pi"
+    mode: "0755"
