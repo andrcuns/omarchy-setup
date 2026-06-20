@@ -6,7 +6,6 @@
     - { role: base, tags: base }
     - { role: mise, tags: mise }
     - { role: terminal, tags: terminal }
-    # - { role: keyring, tags: keyring }
     - { role: web-apps, tags: web-apps }
 
     # Shell
