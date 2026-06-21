@@ -2,6 +2,8 @@
 - name: Install extra packages
   community.general.pacman:
     name:
+      - bitwarden
+      - bitwarden-cli
       - chezmoi
       - diff-so-fancy
       - direnv
@@ -21,14 +23,6 @@
     update_cache: true
   become: true
 
-- name: Install zed editor
-  shell: |
-    curl -f https://zed.dev/install.sh | sh
-
-- name: Install bitwarden
-  shell: |
-    omarchy-pkg-add bitwarden bitwarden-cli
-
 - name: Remove unneeded packages
   community.general.pacman:
     name:
@@ -37,6 +31,9 @@
       - signal-desktop
     state: absent
   become: true
+
+- name: Install zed editor
+  shell: curl -f https://zed.dev/install.sh | sh
 
 - name: Set firefox as default browser
   shell: xdg-settings set default-web-browser firefox.desktop
