@@ -16,7 +16,7 @@ if [ -n "$1" ]; then
 fi
 
 echo "*** Install ansible ***"
-sudo pacman -Sy --noconfirm ansible
+omarchy-pkg-add ansible
 success "done!"
 
 echo ""
