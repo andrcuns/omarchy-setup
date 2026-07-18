@@ -16,9 +16,6 @@ export SUDO_EDITOR="$EDITOR"
 export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
 export BUNDLE_AUTO_INSTALL=true
 
-# Docker
-export COMPOSE_DOCKER_CLI_BUILD=1
-
 # Setup project path
 export SETUP_PROJECT_PATH={{ playbook_dir }}
 
@@ -115,6 +112,7 @@ alias zshrc='vim $HOME/.zshrc'
 alias ll='eza --long --icons --group-directories-first'
 alias la='eza --long --all --icons --group-directories-first --icons'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias p='pnpm'
 
 # dotfiles
 alias ch='chezmoi'
