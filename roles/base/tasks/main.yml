@@ -34,6 +34,3 @@
 
 - name: Install zed editor
   shell: curl -f https://zed.dev/install.sh | sh
-
-- name: Set firefox as default browser
-  shell: xdg-settings set default-web-browser firefox.desktop
