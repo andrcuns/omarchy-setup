@@ -2,8 +2,6 @@
 - name: Install extra packages
   community.general.pacman:
     name:
-      - bitwarden
-      - bitwarden-cli
       - chezmoi
       - diff-so-fancy
       - direnv
