@@ -1,9 +1,0 @@
----
-apps:
-  - name: ProtonMail
-    url: "https://mail.proton.me"
-    icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/proton-mail.png"
-  - name: Claude
-    url: "https://claude.ai"
-    icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png"
-    binding: "SHIFT SUPER ALT, A"

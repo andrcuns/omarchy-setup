@@ -24,14 +24,14 @@
 
 - name: Create hyprland terminal configuration
   copy:
-    src: terminal.conf
-    dest: "{{ user.home }}/.config/hypr/terminal.conf"
+    src: terminal.lua
+    dest: "{{ user.home }}/.config/hypr/terminal.lua"
   when: hypr_dir.stat.exists
 
-- name: Add terminal.conf source to hyprland.conf
+- name: Add terminal.lua require to hyprland.lua
   lineinfile:
-    path: "{{ user.home }}/.config/hypr/hyprland.conf"
-    line: "source = ~/.config/hypr/terminal.conf"
+    path: "{{ user.home }}/.config/hypr/hyprland.lua"
+    line: 'require("hypr.terminal")'
     create: no
     backup: true
   when: hypr_dir.stat.exists
