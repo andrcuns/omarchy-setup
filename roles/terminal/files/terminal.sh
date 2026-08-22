@@ -50,10 +50,12 @@ fi
 
 FOCUSED=$(hyprctl activewindow -j | jq -r '.address' || echo "")
 WIN_MON=$(echo "$CLIENTS" | jq -r '.[] | select(.address=="'"$WIN"'") | .monitor')
+WIN_WS=$(echo "$CLIENTS" | jq -r '.[] | select(.address=="'"$WIN"'") | .workspace.name')
+
 MONITORS=$(hyprctl monitors -j)
 FOCUSED_MON=$(echo "$MONITORS" | jq -r '.[] | select(.focused==true) | .id')
 
-if [ "$FOCUSED" = "$WIN" ] && [ "$WIN_MON" = "$FOCUSED_MON" ]; then
+if [[ "$WIN_WS" != special:* ]] && [ "$FOCUSED" = "$WIN" ] && [ "$WIN_MON" = "$FOCUSED_MON" ]; then
   hyprctl dispatch "hl.dsp.window.move({ workspace = \"special\", follow = false, window = \"address:$WIN\" })"
 else
   CURWS=$(echo "$MONITORS" | jq -r '.[] | select(.focused==true) | .activeWorkspace.id')
