@@ -62,12 +62,8 @@ function update() {
   cd $HOME
 
   echo ""
-  log-info "***Update arch software***"
-  sudo pacman -Syu
-
-  echo
-  log-info "*** Updating aur packages***"
-  yay -Syu
+  log-info "***Run omarchy update***"
+  omarchy update
 
   echo
   log-info "***Update global mise tools and run cleanup***"
