@@ -1,9 +1,15 @@
 [tools]
+# languages
 node = "latest"
 ruby = "latest"
-pi = "latest"
-opencode = "latest"
-"github:akitaonrails/ai-jail" = "latest"
+go = "latest"
+
+# tools
+shellcheck = "latest"
+shfmt = "latest"
+
+# llm
+herdr = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
@@ -14,3 +20,6 @@ compile = false
 
 [settings.node]
 compile = false
+
+[settings.upgrade]
+auto_prune = false

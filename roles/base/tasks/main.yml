@@ -3,31 +3,35 @@
   community.general.pacman:
     name:
       - chezmoi
+      - firefox
+      - mkcert
+      - ttf-firacode-nerd
+      # terminal
+      - kitty
+      - zsh
       - diff-so-fancy
       - direnv
-      - firefox
-      - kubectx
-      - mkcert
-      - ncdu
       - pass
-      - zsh
-      - k9s
-      - yubikey-manager
-      - ttf-firacode-nerd
-      - gnome-disk-utility
-      - kitty
       - btop
+      - github-cli
+      - glab
+      - fzf
+      - bat
+      - eza
+      - jq
+      - lazygit
+      - lazydocker
+      - zoxide
+      - starship
+      - ncdu
+      - git
+      # cloud
+      - k9s
+      - helm
+      - kubectl
+      - kubectx
     state: latest
     update_cache: true
-  become: true
-
-- name: Remove unneeded packages
-  community.general.pacman:
-    name:
-      - 1password-beta
-      - 1password-cli
-      - signal-desktop
-    state: absent
   become: true
 
 - name: Install zed editor
