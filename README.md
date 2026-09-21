@@ -1,6 +1,6 @@
 # OMARCHY SETUP
 
-omarchy-setup is a small project using ansible to update some of the defaults for a default [Omarchy](https://omarchy.org/) installation.
+omarchy-setup is a small project using ansible to update some of the defaults for [Omarchy](https://omarchy.org/) installation.
 
 ## Usage
 

@@ -1,4 +1,5 @@
 ---
+# most packages come already pre-installed, duplicate installation in case defaults change in the future
 - name: Install extra packages
   community.general.pacman:
     name:
@@ -6,6 +7,7 @@
       - firefox
       - mkcert
       - ttf-firacode-nerd
+      - nordvpn-bin
       # terminal
       - kitty
       - zsh
@@ -13,7 +15,6 @@
       - direnv
       - pass
       - btop
-      - github-cli
       - glab
       - fzf
       - bat
@@ -30,9 +31,36 @@
       - helm
       - kubectl
       - kubectx
+      # password management
+      - bitwarden
+      - bitwarden-cli
     state: latest
     update_cache: true
   become: true
 
 - name: Install zed editor
   shell: curl -f https://zed.dev/install.sh | sh
+
+- name: Remove unneeded packages
+  community.general.pacman:
+    name:
+      - herdr # manage herdr via mise
+      - 1password-beta
+      - 1password-cli
+      - signal-desktop
+    state: absent
+  become: true
+
+- name: Enable and start NordVPN daemon
+  ansible.builtin.systemd_service:
+    name: nordvpnd
+    enabled: true
+    state: started
+  become: true
+
+- name: Add current user to NordVPN group
+  ansible.builtin.user:
+    name: "{{ user.name }}"
+    groups: nordvpn
+    append: true
+  become: true
