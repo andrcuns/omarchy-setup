@@ -1,16 +1,17 @@
 ---
 
+# omarchy already uses LazyVim, keep this step in case it changes in the future
+- name: Check whether Neovim config already exists
+  stat:
+    path: "{{ nvim_config }}"
+  register: nvim_config_dir
+
 - name: Clone lazyvim starter template
   git:
     repo: "{{ github }}LazyVim/starter.git"
     dest: "{{ nvim_config }}"
     accept_hostkey: yes
-    force: yes
-
-- name: Add tomorrow theme plugin
-  copy:
-    src: theme.lua
-    dest: "{{ nvim_config }}/lua/plugins/theme.lua"
+  when: not nvim_config_dir.stat.exists
 
 - name: Add colorcolumn option
   lineinfile:

@@ -15,13 +15,19 @@ if [ -n "$1" ]; then
   dotfiles_branch="$2"
 fi
 
-echo "*** Install ansible ***"
+log "*** Install ansible ***"
 omarchy-pkg-add ansible
 success "done!"
 
 echo ""
 log "*** Running Ansible Playbook ***"
 ansible-playbook playbook.yml --ask-become-pass --skip-tags neovim
+success "done!"
+
+echo ""
+log "*** Install additional aur packages ***"
+yay -S docker-sbx-bin
+success "done!"
 
 if [ -n "$dotfiles_repo" ]; then
   echo ""
