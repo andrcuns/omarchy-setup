@@ -32,7 +32,6 @@
       - kubectl
       - kubectx
       # password management
-      - bitwarden
       - bitwarden-cli
     state: latest
     update_cache: true
