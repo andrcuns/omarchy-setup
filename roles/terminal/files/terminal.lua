@@ -1,5 +1,6 @@
 local NAME = "terminal"
 local WORKSPACE = "special:" .. NAME
+local KITTY_CLASS = "Terminal"
 local SIDE_GAP = 5
 local TOP_GAP = 4
 local HEIGHT_PERCENT = 70
@@ -9,7 +10,21 @@ hl.bind("CTRL + return", hl.dsp.workspace.toggle_special(NAME), { description = 
 hl.on("workspace.created", function(ws)
     if ws and ws.name == WORKSPACE and ws.is_empty then
         -- The placement rule follows the spawned process, so launch a fresh Kitty.
-        hl.exec_cmd("kitty --class Terminal", { workspace = WORKSPACE .. " silent" })
+        hl.exec_cmd("kitty --class " .. KITTY_CLASS, { workspace = WORKSPACE .. " silent" })
+    end
+end)
+
+hl.on("window.open", function(window)
+    local ws = window and window.workspace
+    if not ws or ws.name ~= WORKSPACE or window.initial_class == KITTY_CLASS then
+        return
+    end
+
+    local monitor = window.monitor
+    local parent = monitor and monitor.active_workspace
+    if parent then
+        -- Following the window hides the special workspace without closing Kitty.
+        hl.dispatch(hl.dsp.window.move({ window = window, workspace = parent, follow = true }))
     end
 end)
 
