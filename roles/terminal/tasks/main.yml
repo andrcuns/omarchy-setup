@@ -15,13 +15,6 @@
     path: "{{ user.home }}/.config/hypr"
   register: hypr_dir
 
-- name: Copy terminal script
-  copy:
-    src: terminal.sh
-    dest: "{{ user.home }}/.config/hypr/terminal.sh"
-    mode: '0755'
-  when: hypr_dir.stat.exists
-
 - name: Create hyprland terminal configuration
   copy:
     src: terminal.lua
